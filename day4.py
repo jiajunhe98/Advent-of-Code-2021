@@ -22,6 +22,66 @@ with open("day4.txt") as f:
     f = f.read().splitlines()
 
 # Puzzle 1
+class Board:
+    def __init__(self):
+        self.board = []
+        self.row_count = [0] * 5
+        self.col_count = [0] * 5
+
 def puzzle_1(data):
     random_numbers = data[0].split(",")
+    board_list = []
+    for i in range(1, len(data)):
+        if data[i] == "":
+            board_list.append(Board())
+        else:
+            board_list[-1].board.append(data[i].split())
+    for number in random_numbers:
+        for j in board_list:
+            for m in range(5):
+                for n in range(5):
+                    if j.board[m][n] == number:
+                        j.board[m][n] = 0
+                        j.row_count[m] += 1
+                        j.col_count[n] += 1
+                        if j.row_count[m] == 5 or j.col_count[n] == 5:
+                            return sum([int(j.board[a][b]) for a in range(5) for b in range(5)]) * int(number)
+assert(puzzle_1(example) == 4512)
+print(puzzle_1(f))
+
+
+# Puzzle 2
+
+class Board2:
+    def __init__(self):
+        self.board = []
+        self.row_count = [5] * 5
+        self.col_count = [5] * 5
+        self.sum = 0
+
+
+def puzzle_2(data):
+    random_numbers = data[0].split(",")
+    board_list = []
+    for i in range(1, len(data)):
+        if data[i] == "":
+            board_list.append(Board2())
+        else:
+            board_list[-1].board.append(data[i].split())
+    for number in random_numbers[::-1]:
+        for j in board_list:
+            for m in range(5):
+                for n in range(5):
+                    if j.board[m][n] == number:
+                        j.sum += int(j.board[m][n])
+                        j.row_count[m] -= 1
+                        j.col_count[n] -= 1
+                        if (5 not in j.row_count) and (5 not in j.col_count):
+                            return (j.sum - int(j.board[m][n])) * int(number)
+
+assert(puzzle_2(example) == 1924)
+print(puzzle_2(f))
+
+
+
 
