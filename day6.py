@@ -24,6 +24,7 @@ print(puzzle_1(f, 80))
 # Same as 1, but a cleverer way is needed
 # 1 day pass: 1 -> 0 * 1; 2 -> 1 * 1; 3 -> 2 * 1; ...
 # Only 0 -> 6 * 1 + 8 * 1
+
 def puzzle_2(data, day):
     counts = {i: 0 for i in range(9)}
     for i in data:
