@@ -59,6 +59,50 @@ time_start = time.time()
 print(puzzle_1(f))
 print("time: ", time.time() - time_start)
 
+
+
+
+# Puzzle 2
+def puzzle_2(data):
+    expand_entry = lambda x, i: (int(x)+i) % 10 + 1 if (int(x)+i) > 9 else int(x)+i
+    def data_row(x):
+        row = []
+        for i in range(5):
+            row += [expand_entry(char, i) for char in x]
+        return row
+    data = [data_row(x) for x in data]
+    len_data = len(data)
+    for i in range(1, 5):
+        for k in range(len_data):
+            data.append([expand_entry(j, i) for j in data[k]])
+
+    paths = [[1e8 for i in j] for j in data]
+    paths[0][0] = 0
+    while 1:
+        change_num = 0
+        for i in range(len(data)):
+            for j in range(len(data[0])):
+                def get_ij(i, j):
+                    try: return paths[i][j]
+                    except: return 1e8
+
+                last_value = paths[i][j]
+                paths[i][j] = min(get_ij(i - 1, j) + data[i][j],
+                                  get_ij(i + 1, j) + data[i][j],
+                                  get_ij(i, j - 1) + data[i][j],
+                                  get_ij(i, j + 1) + data[i][j], paths[i][j])
+                if paths[i][j] != last_value:
+                    change_num += 1
+        if change_num == 0:
+            return paths[-1][-1]
+
+
+
+
+
+
+
+
 #
 #
 # # Puzzle 2
@@ -110,13 +154,18 @@ print("time: ", time.time() - time_start)
 #         if current_node == (length - 1) * width - 2:
 #
 #             return current_path_length
-# assert(puzzle_2(example) == 315)
-#
-# time_start = time.time()
-# print(puzzle_2(f))
-# print("time: ", time.time() - time_start)
-#
-#
+assert(puzzle_2(example) == 315)
+
+time_start = time.time()
+print(puzzle_2(f))
+print("time: ", time.time() - time_start)
+
+
+time_start = time.time()
+print(puzzle_2(f))
+print("time: ", time.time() - time_start)
+
+
 
 
 
