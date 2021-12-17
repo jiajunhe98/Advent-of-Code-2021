@@ -18,42 +18,29 @@ import time
 
 # Puzzle 1
 def puzzle_1(data):
-    data = [[1e8]+[int(i) for i in j]+[1e8] for j in data]
-    data.append([1e8]*len(data[0]))
-    data.insert(0, [1e8] * len(data[0]))
 
-    length = len(data)
-    width = len(data[0])
+    data = [[int(i) for i in j] for j in data]
 
-    index_to_position = lambda x: (x // width, x % width)
-    position_to_index = lambda x, y: x * width + y
-
-    # Dijkstra
-    paths = [1e8] * (length * width)
-    fixed_nodes = {width + 1}
-    shortest_paths = {width + 1: 0}
-    current_node = width + 1
-    current_path_length = 0
+    paths = [[1e8 for i in j] for j in data]
+    paths[0][0] = 0
     while 1:
-        x, y = index_to_position(current_node)
-        add_list = {}
-        for add in [(x - 1, y), (x + 1, y), (x, y + 1), (x, y - 1)]:
-            if paths[position_to_index(*add)] > data[add[0]][add[1]] + current_path_length \
-                    and position_to_index(*add) not in fixed_nodes:
-                paths[position_to_index(*add)] = min(data[add[0]][add[1]] + current_path_length,
-                                               paths[position_to_index(*add)])
-                add_list[paths[position_to_index(*add)]] = position_to_index(*add)
+        change_num = 0
+        for i in range(len(data)):
+            for j in range(len(data[0])):
+                def get_ij(i, j):
+                    try: return paths[i][j]
+                    except: return 1e8
 
-        current_path_length = min(paths)
-        current_node = paths.index(current_path_length)
+                last_value = paths[i][j]
+                paths[i][j] = min(get_ij(i - 1, j) + data[i][j],
+                                  get_ij(i + 1, j) + data[i][j],
+                                  get_ij(i, j - 1) + data[i][j],
+                                  get_ij(i, j + 1) + data[i][j], paths[i][j])
+                if paths[i][j] != last_value:
+                    change_num += 1
+        if change_num == 0:
+            return paths[-1][-1]
 
-        fixed_nodes.add(current_node)
-        shortest_paths[current_node] = current_path_length
-        paths[current_node] = 1e8
-
-        if current_node == (length - 1) * width - 2:
-
-            return current_path_length
 assert(puzzle_1(example) == 40)
 time_start = time.time()
 print(puzzle_1(f))
