@@ -3,4 +3,6 @@
 
 📚 Degree of difficulty of each day's puzzle (only my own point of view):
 
-Day | Difficulity | 
+|Day | Difficulity | 
+|----|-------------|
+
