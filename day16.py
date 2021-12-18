@@ -151,7 +151,6 @@ def puzzle_2(data):
         else:
             stack.append(current)
 
-
     return stack[0]
 
 assert(puzzle_2(example5) == 3)
