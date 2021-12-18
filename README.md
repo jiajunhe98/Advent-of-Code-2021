@@ -3,6 +3,15 @@
 
 📚 Degree of difficulty of each day's puzzle (only my own point of view):
 
-|Day | Difficulity | 
+| Day| Difficulty  | 
 |----|-------------|
+|1| ⭐|
+|2| ⭐|
+|3| ⭐|
+|4| ⭐|
+|5| ⭐|
+|6| ⭐|
+|7| ⭐|
+|8| ⭐|
+
 
