@@ -5,7 +5,7 @@
 
 
 
-📚 Degree of difficulty of each day's puzzle ☆ - ★★★★★(only from my own perspective):
+⭐ Degree of difficulty of each day's puzzle (only from my own perspective):
 
 | Day| Difficulty  | | Day| Difficulty  | | Day| Difficulty  | | Day| Difficulty  | | Day| Difficulty  | 
 |----|-------------| -|----|-------------|-|----|-------------|-|----|-------------|-|----|-------------|
