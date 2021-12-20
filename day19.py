@@ -151,15 +151,6 @@ def process_data(data):
 
 def generate_descriptors(data):
     descriptors = [[] for i in range(len(data))]
-    indices = {(1, 1, 1): 0,
-               (1, 1, 0): 1,
-               (1, 0, 1): 2,
-               (1, 0, 0): 3,
-               (0, 1, 1): 4,
-               (0, 1, 0): 5,
-               (0, 0, 1): 6,
-               (0, 0, 0): 7}    # the index in descriptors
-    # +++/++-/+-+/+--/-++/-+-/--+/---/
 
     for i in range(len(data)):
         for j in range(i+1, len(data)):
