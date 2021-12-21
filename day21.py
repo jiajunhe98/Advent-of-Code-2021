@@ -137,5 +137,9 @@ def puzzle_2(data):
     return max(winner_1, winner_2)
 
 assert(puzzle_2(example) == 444356092776315)
-print(puzzle_2(f))
 
+
+import time
+t = time.time()
+print(puzzle_2(f))
+print(time.time()-t)
