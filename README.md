@@ -7,7 +7,7 @@
 
 ⭐ Degree of difficulty of each day's puzzle (only from my own perspective):
 
-| Day| Difficulty  | | Day| Difficulty  | | Day| Difficulty  | | Day| Difficulty  | | Day| Difficulty  | 
+| Day| Difficulty  | | Day| Difficulty  | | Day| Difficulty  | | Day| Difficulty  | | Day|  Difficulty  | 
 |----|-------------| -|----|-------------|-|----|-------------|-|----|-------------|-|----|-------------|
 |1| ☆| |6| ★||11| ★★||16| ★★★★☆||21|★★★|
 |2| ☆| |7| ★||12| ★★☆||17| ★★☆||22|★★★|
